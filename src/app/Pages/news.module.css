@@ -1,0 +1,23 @@
+.newsContainer{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+}
+.block{
+    width: 200px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    margin: 10px;
+    padding: 20px;
+    background-color: #2c6752;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+}
+.loadMoreBtn{
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+}

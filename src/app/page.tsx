@@ -1,10 +1,12 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import React from "react";
+import styles from "./page.module.css";
+import NewsPage from "@/app/Pages/NewsPage";
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      gogo
-    </main>
-  )
+function Home() {
+    return (
+        <main className={styles.main}>
+            <NewsPage/>
+        </main>
+    );
 }
+export default Home;
