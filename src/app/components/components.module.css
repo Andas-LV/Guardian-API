@@ -1,0 +1,23 @@
+.searchBtn{
+    cursor: pointer;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    width: 20%;
+}
+.searchInput, .searchResult{
+    color: white;
+}
+.loadMoreBtn, .backBtn{
+    cursor: pointer;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    width: 30%;
+}
+.loadMoreBtn:hover, .backBtn:hover, .searchBtn:hover{
+    background-color: white;
+    color: black;
+}

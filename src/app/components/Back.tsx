@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import styles from './components.module.css';
 import { fetchNews } from '@/app/api/route';
 
-interface LoadMoreProps {
+interface BackProps {
     currentPage: number;
     onPageChange: (newPage: number) => void;
 }
 
-const LoadMore: React.FC<LoadMoreProps> = ({ currentPage, onPageChange }) => {
+const Back: React.FC<BackProps> = ({ currentPage, onPageChange }) => {
     useEffect(() => {
         fetchNews(currentPage)
             .then((data) => {
@@ -19,14 +19,14 @@ const LoadMore: React.FC<LoadMoreProps> = ({ currentPage, onPageChange }) => {
     }, [currentPage]);
 
     const handlePage = () => {
-        onPageChange(currentPage + 1);
+        onPageChange(currentPage - 1);
     };
 
     return (
-        <button onClick={handlePage} className={styles.loadMoreBtn}>
-            Load More
+        <button onClick={handlePage} className={styles.backBtn}>
+            Back
         </button>
     );
 };
 
-export default LoadMore;
+export default Back;
