@@ -10,16 +10,14 @@ interface BackProps {
 const Back: React.FC<BackProps> = ({ currentPage, onPageChange }) => {
     useEffect(() => {
         fetchNews(currentPage)
-            .then((data) => {
-                console.log(data);
-            })
+            .then()
             .catch((error) => {
                 console.error(error);
             });
     }, [currentPage]);
 
     const handlePage = () => {
-        onPageChange(currentPage - 1);
+        onPageChange(currentPage - (currentPage-1));
     };
 
     return (

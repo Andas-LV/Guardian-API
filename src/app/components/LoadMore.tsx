@@ -10,9 +10,7 @@ interface LoadMoreProps {
 const LoadMore: React.FC<LoadMoreProps> = ({ currentPage, onPageChange }) => {
     useEffect(() => {
         fetchNews(currentPage)
-            .then((data) => {
-                console.log(data);
-            })
+            .then()
             .catch((error) => {
                 console.error(error);
             });

@@ -13,12 +13,15 @@
     justify-content: space-between;
 }
 .block{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 200px;
     border: 1px solid white;
     border-radius: 5px;
-    color: white;
+    color: #d4ded4;
     padding: 20px;
-    background-color: #d4b677;
+    background-color: #1e1f22;
     overflow: hidden;
     white-space: pre-wrap;
     text-overflow: ellipsis;
@@ -29,4 +32,8 @@
     border-radius: 5px;
     padding: 5px;
     width: 30%;
+}
+.sectionName{
+    color: #5b814a;
+    margin: 5px 0 10px;
 }

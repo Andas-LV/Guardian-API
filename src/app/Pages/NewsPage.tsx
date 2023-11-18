@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import NewsCard from '../components/NewsCard';
 import { fetchNews } from '../api/route';
 import LoadMore from "@/app/components/LoadMore";
+import Back from "@/app/components/Back";
 import Search from "@/app/components/Search";
 import styles from './news.module.css';
-import Back from "@/app/components/Back";
 
 const NewsPage: React.FC = () => {
     interface NewsItem {
@@ -21,26 +21,16 @@ const NewsPage: React.FC = () => {
     const handlePageChange = (newPage: number) => {
         setPage(newPage);
     }
-    let gg = true;
-    function toogle (data:any, prevNews:any){
-
-        if(gg){
-            console.log(data)
-            console.log("prevnews")
-            console.log(prevNews)
-            gg=false
-            return data
-        }else{
-            console.log("prevnews")
-            console.log(prevNews)
-            return [...data, ...prevNews]
-        }
-
-    }
 
     useEffect(() => {
         fetchNews(page)
-            .then((data) => setNews(data))
+            .then((data) => {
+                if (page === 1) {
+                    setNews(data);
+                } else {
+                    setNews(prev => [...prev, ...data]);
+                }
+            })
             .catch((error) => console.error(error));
     }, [page]);
 
@@ -53,11 +43,11 @@ const NewsPage: React.FC = () => {
                     <NewsCard
                         key={newsItem.id}
                         title={newsItem.webTitle}
-                        date={newsItem.webPublicationDate}
                         section={newsItem.sectionName}
                     />
                 ))}
             </div>
+
             <div className={styles.btnGroup}>
                 <LoadMore currentPage={page} onPageChange={handlePageChange}/>
                 <Back currentPage={page} onPageChange={handlePageChange}/>
