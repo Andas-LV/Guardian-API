@@ -21,16 +21,19 @@ const Search:React.FC<SearchComponent> = ({ news }) => {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Enter your search query"
+                placeholder="Enter your search"
                 className={styles.searchInput}
             />
             <button onClick={handleSearch} className={styles.searchBtn}>Search</button>
 
-            <ul className={styles.searchResult}>
+            <div className={styles.searchedContainer}>
                 {results.map((result) => (
-                    <li key={result.id}>{result.webTitle}</li>
+                    <div className={styles.searchedBlock}>
+                        <h2>{result.webTitle}</h2>
+                        <div className={styles.sectionName}>{result.sectionName}</div>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
